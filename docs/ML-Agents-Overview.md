@@ -277,9 +277,9 @@ mode with the **3D Balance Ball** sample environment.
 #### Cross-Platform Inference
 
 It is important to note that the ML-Agents Toolkit leverages the
-[Sentis](Sentis.md) to run the models within a
+[Unity Inference Engine](Unity-Inference-Engine.md) to run the models within a
 Unity scene such that an agent can take the _optimal_ action at each step. Given
-that Sentis support most platforms that Unity does, this
+that the Unity Inference Engine support most platforms that Unity does, this
 means that any model you train with the ML-Agents Toolkit can be embedded into
 your Unity application that runs on any platform. See our
 [dedicated blog post](https://blogs.unity3d.com/2019/03/01/unity-ml-agents-toolkit-v0-7-a-leap-towards-cross-platform-inference/)
@@ -385,7 +385,7 @@ your agent's behavior:
 
 ML-Agents provide an implementation of two reinforcement learning algorithms:
 
-- [Proximal Policy Optimization (PPO)](https://openai.com/research/openai-baselines-ppo)
+- [Proximal Policy Optimization (PPO)](https://blog.openai.com/openai-baselines-ppo/)
 - [Soft Actor-Critic (SAC)](https://bair.berkeley.edu/blog/2018/12/14/sac/)
 
 The default algorithm is PPO. This is a method that has been shown to be more
@@ -434,7 +434,6 @@ Similarly to Curiosity, Random Network Distillation (RND) is useful in sparse or
 reward environments as it helps the Agent explore. The RND Module is implemented following
 the paper [Exploration by Random Network Distillation](https://arxiv.org/abs/1810.12894).
 RND uses two networks:
-
  - The first is a network with fixed random weights that takes observations as inputs and
  generates an encoding
  - The second is a network with similar architecture that is trained to predict the
@@ -492,9 +491,9 @@ to the expert, the agent is incentivized to remain alive for as long as possible
 This can directly conflict with goal-oriented tasks like our PushBlock or Pyramids
 example environments where an agent must reach a goal state thus ending the
 episode as quickly as possible. In these cases, we strongly recommend that you
-use a low strength GAIL reward signal and a sparse extrinsic signal when
+use a low strength GAIL reward signal and a sparse extrinisic signal when
 the agent achieves the task. This way, the GAIL reward signal will guide the
-agent until it discovers the extrinsic signal and will not overpower it. If the
+agent until it discovers the extrnisic signal and will not overpower it. If the
 agent appears to be ignoring the extrinsic reward signal, you should reduce
 the strength of GAIL.
 
@@ -564,7 +563,7 @@ in training behaviors for specific types of environments.
 
 ML-Agents provides the functionality to train both symmetric and asymmetric
 adversarial games with
-[Self-Play](https://openai.com/research/competitive-self-play). A symmetric game is
+[Self-Play](https://openai.com/blog/competitive-self-play/). A symmetric game is
 one in which opposing agents are equal in form, function and objective. Examples
 of symmetric games are our Tennis and Soccer example environments. In
 reinforcement learning, this means both agents have the same observation and

@@ -122,7 +122,7 @@ artifacts), then use the `--force` flag.
 You can also use this mode to run inference of an already-trained model in
 Python by using both the `--resume` and `--inference` flags. Note that if you
 want to run inference in Unity, you should use the
-[Sentis](Getting-Started.md#running-a-pre-trained-model).
+[Unity Inference Engine](Getting-Started.md#running-a-pre-trained-model).
 
 Additionally, if the network architecture changes, you may still load an existing model,
 but ML-Agents will only load the parts of the model it can load and ignore all others. For instance,
@@ -413,7 +413,7 @@ Unless otherwise specified, omitting a configuration will revert it to its defau
 In some cases, you may want to specify a set of default configurations for your Behaviors.
 This may be useful, for instance, if your Behavior names are generated procedurally by
 the environment and not known before runtime, or if you have many Behaviors with very similar
-settings. To specify a default configuration, insert a `default_settings` section in your YAML.
+settings. To specify a default configuraton, insert a `default_settings` section in your YAML.
 This section should be formatted exactly like a configuration for a Behavior.
 
 ```yaml

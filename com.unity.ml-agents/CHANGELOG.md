@@ -6,32 +6,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-### Major Changes
-#### com.unity.ml-agents / com.unity.ml-agents.extensions (C#)
-- Upgraded to Sentis 1.3.0-pre.3 (#6070)
-- Upgraded to Sentis 1.3.0-exp.2 (#6013)
-- The minimum supported Unity version was updated to 2023.2. (#6071)
-
-#### ml-agents / ml-agents-envs
-- Upgraded to PyTorch 2.1.1. (#6013)
-
-### Minor Changes
-#### com.unity.ml-agents / com.unity.ml-agents.extensions (C#)
-- Added no-graphics-monitor. (#6014)
-
-#### ml-agents / ml-agents-envs
-
-### Bug Fixes
-#### com.unity.ml-agents / com.unity.ml-agents.extensions (C#)
-- Fixed missing tensor Dispose in ModelRunner. (#6028)
-- Fixed 3DBall sample package to remove Barracuda dependency. (#6030)
-
-#### ml-agents / ml-agents-envs
-- Bumped numpy version to >=1.23.5,<1.24.0 (#6082)
-- Bumped onnx version to 1.15.0 (#6062)
-- Bumped protobuf version to >=3.6,<21 (#6062)
-
 ## [3.0.0-exp.1] - 2023-10-09
 ### Major Changes
 #### com.unity.ml-agents / com.unity.ml-agents.extensions (C#)

@@ -51,22 +51,16 @@ namespace Unity.MLAgents.Sensors
             }
 
             sensor.Write(writer);
-            bool mismatch = false;
-            errorMessage = null;
             for (var i = 0; i < output.Length; i++)
             {
                 if (expected[i] != output[i])
                 {
-                    string error = $"Expected and actual differed in position {i}. Expected: {expected[i]}  Actual: {output[i]} ";
-                    errorMessage = !mismatch ? error : $"{errorMessage}\n{error}";
-                    mismatch = true;
+                    errorMessage = $"Expected and actual differed in position {i}. Expected: {expected[i]}  Actual: {output[i]} ";
+                    return false;
                 }
             }
-            if (mismatch)
-            {
-                return false;
-            }
 
+            errorMessage = null;
             return true;
         }
 

@@ -43,7 +43,11 @@ importing the ML-Agents assets into it:
 
 Your Unity **Project** window should contain the following assets:
 
-![Unity Project Window](images/roller-ball-projects.png){: style="width:250px"}
+<p align="left">
+  <img src="images/roller-ball-projects.png"
+       alt="Project window"
+       width="250" border="10" />
+</p>
 
 ## Create the Environment
 
@@ -60,7 +64,11 @@ to seek, and a Sphere to represent the Agent itself.
 1. Set Transform to Position = `(0, 0, 0)`, Rotation = `(0, 0, 0)`, Scale =
    `(1, 1, 1)`.
 
-![Floor Inspector window](images/roller-ball-floor.png){: style="width:400px"}
+<p align="left">
+  <img src="images/roller-ball-floor.png"
+       alt="The Floor in the Inspector window"
+       width="400" border="10" />
+</p>
 
 ### Add the Target Cube
 
@@ -70,7 +78,11 @@ to seek, and a Sphere to represent the Agent itself.
 1. Set Transform to Position = `(3, 0.5, 3)`, Rotation = `(0, 0, 0)`, Scale =
    `(1, 1, 1)`.
 
-![Target Cube Inspector window](images/roller-ball-target.png){: style="width:400px"}
+<p align="left">
+  <img src="images/roller-ball-target.png"
+       alt="The Target Cube in the Inspector window"
+       width="400" border="10" />
+</p>
 
 ### Add the Agent Sphere
 
@@ -96,7 +108,11 @@ To do so:
 1. Drag the Floor, Target, and RollerAgent GameObjects in the Hierarchy into the
    TrainingArea GameObject.
 
-![Hierarchy window](images/roller-ball-hierarchy.png){: style="width:250px"}
+<p align="left">
+  <img src="images/roller-ball-hierarchy.png"
+       alt="The Hierarchy window"
+       width="250" border="10" />
+</p>
 
 ## Implement an Agent
 
@@ -344,8 +360,11 @@ with our Agent script.
    - `Actions` > `Continuous Actions` = 2
 
 In the inspector, the `RollerAgent` should look like this now:
-
-![Agent GameObject Inspector window](images/roller-ball-agent.png){: style="width:400px"}
+<p align="left">
+  <img src="images/roller-ball-agent.png"
+       alt="The Agent GameObject in the Inspector window"
+       width="400" border="5" />
+</p>
 
 Now you are ready to test the environment before training.
 

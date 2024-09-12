@@ -34,7 +34,7 @@ developer communities.
 - Train robust agents using environment randomization
 - Flexible agent control with On Demand Decision Making
 - Train using multiple concurrent Unity environment instances
-- Utilizes the [Sentis](Sentis.md) to
+- Utilizes the [Unity Inference Engine](Unity-Inference-Engine.md) to
   provide native cross-platform support
 - Unity environment [control from Python](Python-LLAPI.md)
 - Wrap Unity learning environments as a [gym](Python-Gym-API.md) environment
@@ -44,7 +44,7 @@ See our [ML-Agents Overview](ML-Agents-Overview.md) page for detailed
 descriptions of all these features. Or go straight to our [web docs](https://unity-technologies.github.io/ml-agents/).
 ## Releases & Documentation
 
-**Our latest, stable release is `Release 21`. Click
+**Our latest, stable release is `Release 20`. Click
 [here](Getting-Started.md)
 to get started with the latest release of ML-Agents.**
 
@@ -52,7 +52,6 @@ to get started with the latest release of ML-Agents.**
 
 The table below lists all our releases, including our `main` branch which is
 under active development and may be unstable. A few helpful guidelines:
-
 - The [Versioning page](Versioning.md) overviews how we manage our GitHub
   releases and the versioning process for each of the ML-Agents components.
 - The [Releases page](https://github.com/Unity-Technologies/ml-agents/releases)
@@ -166,7 +165,7 @@ We have also published a series of blog posts that are relevant for ML-Agents:
 ### More from Unity
 
 - [Unity Sentis](https://unity.com/products/sentis)
-- [Introducing Unity Muse and Sentis](https://blog.unity.com/engine-platform/introducing-unity-muse-and-unity-sentis-ai)
+- [Introductin Unity Muse and Sentis](https://blog.unity.com/engine-platform/introducing-unity-muse-and-unity-sentis-ai)
 
 ## Community and Feedback
 

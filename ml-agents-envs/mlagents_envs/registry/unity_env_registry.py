@@ -16,7 +16,7 @@ class UnityEnvRegistry(Mapping):
     The UnityEnvRegistry implements a Map, to access an entry of the Registry, use:
     ```python
     registry = UnityEnvRegistry()
-    entry = registry[<environment_identifier>]
+    entry = registry[<environment_identifyier>]
     ```
     An entry has the following properties :
      * `identifier` : Uniquely identifies this environment
@@ -27,7 +27,7 @@ class UnityEnvRegistry(Mapping):
     To launch a Unity environment from a registry entry, use the `make` method:
     ```python
     registry = UnityEnvRegistry()
-    env = registry[<environment_identifier>].make()
+    env = registry[<environment_identifyier>].make()
     ```
     """
 
@@ -120,7 +120,6 @@ class UnityEnvRegistry(Mapping):
 
 
 default_registry = UnityEnvRegistry()
-# TODO restore when a new registry is available.
 default_registry.register_from_yaml(
     "https://storage.googleapis.com/mlagents-test-environments/1.1.0/manifest.yaml"
 )  # noqa E501

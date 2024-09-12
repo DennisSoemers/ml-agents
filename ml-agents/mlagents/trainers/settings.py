@@ -517,7 +517,7 @@ class CompletionCriteriaSettings:
 class Lesson:
     """
     Gathers the data of one lesson for one environment parameter including its name,
-    the condition that must be fulfilled for the lesson to be completed and a sampler
+    the condition that must be fullfiled for the lesson to be completed and a sampler
     for the environment parameter. If the completion_criteria is None, then this is
     the last lesson in the curriculum.
     """
@@ -845,7 +845,6 @@ class EngineSettings:
     target_frame_rate: int = parser.get_default("target_frame_rate")
     capture_frame_rate: int = parser.get_default("capture_frame_rate")
     no_graphics: bool = parser.get_default("no_graphics")
-    no_graphics_monitor: bool = parser.get_default("no_graphics_monitor")
 
 
 @attr.s(auto_attribs=True)
