@@ -48,16 +48,16 @@ This section provides a quick guide on how to set up the project and run the ini
 - Visual Studio or another C# IDE (e.g., JetBrains Rider, Visual Studio Code)
 
 ### Setting Up C# for Unity Development
-1. **Install Visual Studio Community Edition** (or another preferred C# IDE):
+1. **Install Visual Studio Community Edition** :
    - [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) is recommended, as it integrates well with Unity.
    - Make sure to include the "Game development with Unity" workload during installation.
 
-2. **Configure Unity to Use Your C# IDE**:
+2. **Configure Unity to Use the C# IDE**:
    - Open Unity, go to `Edit` > `Preferences` > `External Tools`.
-   - Set the "External Script Editor" to Visual Studio or your preferred C# IDE.
+   - Set the "External Script Editor" to Visual Studio.
 
 3. **Basic C# Scripting Knowledge**:
-   - Familiarize yourself with Unity's C# API. Basic scripting knowledge is required to implement custom behaviors for agents and the environment.
+   - Familiarize with Unity's C# API. Basic scripting knowledge is required to implement custom behaviors for agents and the environment.
    - [Unity C# Scripting Documentation](https://docs.unity3d.com/Manual/ScriptingSection.html) can be helpful for beginners.
 
 ## System Requirements
