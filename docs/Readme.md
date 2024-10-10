@@ -29,6 +29,46 @@
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+## Project Overview
+The DRL Unity Project integrates Unity's game engine with the ML-Agents Toolkit to explore state-of-the-art DRL algorithms in real-time 3D simulations. The main objectives of the project are:
+- To apply and analyze the performance of various DRL algorithms for training agents.
+- To implement custom sensors and training configurations in different Unity environments.
+- To document and share the project's progress through a public GitHub repository.
+
+## Getting Started
+This section provides a quick guide on how to set up the project and run the initial training.
+
+### Prerequisites
+- Unity 2021.3 or later
+- Python 3.8+
+- C# scripting knowledge (required for Unity scripting)
+- [ML-Agents Toolkit](https://github.com/Unity-Technologies/ml-agents)
+- Visual Studio or another C# IDE (e.g., JetBrains Rider, Visual Studio Code)
+
+### Setting Up C# for Unity Development
+1. **Install Visual Studio Community Edition** (or another preferred C# IDE):
+   - [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) is recommended, as it integrates well with Unity.
+   - Make sure to include the "Game development with Unity" workload during installation.
+
+2. **Configure Unity to Use Your C# IDE**:
+   - Open Unity, go to `Edit` > `Preferences` > `External Tools`.
+   - Set the "External Script Editor" to Visual Studio or your preferred C# IDE.
+
+3. **Basic C# Scripting Knowledge**:
+   - Familiarize yourself with Unity's C# API. Basic scripting knowledge is required to implement custom behaviors for agents and the environment.
+   - [Unity C# Scripting Documentation](https://docs.unity3d.com/Manual/ScriptingSection.html) can be helpful for beginners.
+
+## System Requirements
+- Unity 2021.3 or later
+- Python 3.8 or higher
+- TensorFlow or PyTorch (for running ML-Agents)
+- Windows, macOS, or Linux
+
+
+
+
 **The Unity Machine Learning Agents Toolkit** (ML-Agents) is an open-source
 project that enables games and simulations to serve as environments for
 training intelligent agents. We provide implementations (based on PyTorch)
