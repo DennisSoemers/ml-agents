@@ -27,7 +27,7 @@
 
 - **Impact:** This change should lead to more cooperative behavior between agents, with passes and positioning becoming more strategic rather than simply chasing the ball or opponent.
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **The Unity Machine Learning Agents Toolkit** (ML-Agents) is an open-source
 project that enables games and simulations to serve as environments for
