@@ -143,22 +143,23 @@ public class AgentSoccer : Agent
             ForceMode.VelocityChange);
     }
 
-    public override void OnActionReceived(ActionBuffers actionBuffers)
+public override void OnActionReceived(ActionBuffers actionBuffers)
+{
+    float progressFactor = StepCount / (float)MaxStep;  // Normalize progress from 0 to 1
 
+    if (position == Position.Goalie)
     {
-
-        if (position == Position.Goalie)
-        {
-            // Existential bonus for Goalies.
-            AddReward(m_Existential);
-        }
-        else if (position == Position.Striker)
-        {
-            // Existential penalty for Strikers
-            AddReward(-m_Existential);
-        }
-        MoveAgent(actionBuffers.DiscreteActions);
+        // Increase reward as episode progresses
+        AddReward(m_Existential * (1 + progressFactor));
     }
+    else if (position == Position.Striker)
+    {
+        // Increase penalty as episode progresses
+        AddReward(-m_Existential * (1 + progressFactor));
+    }
+    MoveAgent(actionBuffers.DiscreteActions);
+}
+
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
@@ -191,24 +192,31 @@ public class AgentSoccer : Agent
             discreteActionsOut[1] = 2;
         }
     }
+
     /// <summary>
     /// Used to provide a "kick" to the ball.
     /// </summary>
     void OnCollisionEnter(Collision c)
+{
+    var force = k_Power * m_KickPower;
+    if (position == Position.Goalie)
     {
-        var force = k_Power * m_KickPower;
-        if (position == Position.Goalie)
+        force = k_Power;
+    }
+    if (c.gameObject.CompareTag("ball"))
+    {
+        AddReward(.2f * m_BallTouch);
+        var dir = c.contacts[0].point - transform.position;
+        dir = dir.normalized;
+        c.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
+
+        // Check if pass to teammate
+        if (c.gameObject.GetComponent<AgentSoccer>()?.team == this.team)
         {
-            force = k_Power;
-        }
-        if (c.gameObject.CompareTag("ball"))
-        {
-            AddReward(.2f * m_BallTouch);
-            var dir = c.contacts[0].point - transform.position;
-            dir = dir.normalized;
-            c.gameObject.GetComponent<Rigidbody>().AddForce(dir * force);
+            AddReward(0.5f);  // Reward for passing to a teammate
         }
     }
+}
 
     public override void OnEpisodeBegin()
     {
