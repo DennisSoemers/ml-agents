@@ -10,6 +10,7 @@
 
 
 # Code Modification in Phase 1
+## The following modification are made on AgentSoccer.cs, which defines a soccer-playing reinforcement learning agent in Unity using the ML-Agents Toolkit, with roles like Striker or Goalie on teams (Blue or Purple). 
 ### 1. Dynamic Reward Scaling Based on Game Progress
 
 - **Change:** We will modify the reward for touching the ball and the existential reward/penalty to increase as the game progresses. This makes the agent more aggressive and strategic later in the episode.
@@ -25,6 +26,8 @@
 - **Why:** In a soccer scenario, teamwork is key. Encouraging the agent to pass to teammates promotes more cooperative and realistic gameplay instead of individualistic behavior.
 
 - **Impact:** This change should lead to more cooperative behavior between agents, with passes and positioning becoming more strategic rather than simply chasing the ball or opponent.
+
+
 
 **The Unity Machine Learning Agents Toolkit** (ML-Agents) is an open-source
 project that enables games and simulations to serve as environments for
