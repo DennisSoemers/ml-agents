@@ -4,7 +4,8 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
 
 public enum Team
-{
+{   
+    # color
     Blue = 0,
     Purple = 1
 }
