@@ -17,7 +17,7 @@ public class SoccerEnvController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /// 
     /// Max Academy steps before this platform resets
     /// </summary>
     /// <returns></returns>
