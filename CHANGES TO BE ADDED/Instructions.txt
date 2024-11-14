@@ -1,0 +1,5 @@
+1) For the sound implementation 3 files will be used, please store (DiskBehaviour, SoundCreator, SoundReader)
+2) You need to create 2 new tags to the scene(The "Sound" and the "SoundOnColide")
+3) Attach the SoundCreator script to the objects that should create sounds.
+4) Attach the SoundReader script to the objects that shiuld read sounds.
+5) Add the SoundOnColide tag to the Walls, and the floor(Objects that when colided with, should make a sound).

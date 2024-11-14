@@ -30,6 +30,8 @@ TagManager:
   - purpleAgent
   - purpleGoal
   - tile
+  - Sound
+  - SoundOnColide
   layers:
   - Default
   - TransparentFX
