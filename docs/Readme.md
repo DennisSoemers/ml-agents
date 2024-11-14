@@ -7,6 +7,68 @@
 ([latest release](https://github.com/Unity-Technologies/ml-agents/releases/tag/latest_release))
 ([all releases](https://github.com/Unity-Technologies/ml-agents/releases))
 
+
+
+# Code Modification in Phase 1
+## The following modification are made on AgentSoccer.cs, which defines a soccer-playing reinforcement learning agent in Unity using the ML-Agents Toolkit, with roles like Striker or Goalie on teams (Blue or Purple). 
+### 1. Dynamic Reward Scaling Based on Game Progress
+
+- **Change:** We will modify the reward for touching the ball and the existential reward/penalty to increase as the game progresses. This makes the agent more aggressive and strategic later in the episode.
+
+- **Why:** Giving the agent a higher reward or penalty as the game progresses encourages it to be more effective towards the end of an episode, where the pressure to score or defend is higher. This dynamic scaling will push the agent to actively pursue the ball or make key defensive plays during crucial moments.
+
+- **Impact:** This will likely make the agent play more aggressively as the game continues, increasing the likelihood of decisive actions at critical moments.
+
+### 2. Increase Reward for Passing to Teammates (Team Cooperation)
+
+- **Change:** Add a reward for passing the ball to a teammate. We'll use a check to see if the ball was passed to another agent on the same team.
+
+- **Why:** In a soccer scenario, teamwork is key. Encouraging the agent to pass to teammates promotes more cooperative and realistic gameplay instead of individualistic behavior.
+
+- **Impact:** This change should lead to more cooperative behavior between agents, with passes and positioning becoming more strategic rather than simply chasing the ball or opponent.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+## Project Overview
+The DRL Unity Project integrates Unity's game engine with the ML-Agents Toolkit to explore state-of-the-art DRL algorithms in real-time 3D simulations. The main objectives of the project are:
+- To apply and analyze the performance of various DRL algorithms for training agents.
+- To implement custom sensors and training configurations in different Unity environments.
+- To document and share the project's progress through a public GitHub repository.
+
+## Getting Started
+This section provides a quick guide on how to set up the project and run the initial training.
+
+### Prerequisites
+- Unity 2021.3 or later
+- Python 3.8+
+- C# scripting knowledge (required for Unity scripting)
+- [ML-Agents Toolkit](https://github.com/Unity-Technologies/ml-agents)
+- Visual Studio or another C# IDE (e.g., JetBrains Rider, Visual Studio Code)
+
+### Setting Up C# for Unity Development
+1. **Install Visual Studio Community Edition** :
+   - [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) is recommended, as it integrates well with Unity.
+   - Make sure to include the "Game development with Unity" workload during installation.
+
+2. **Configure Unity to Use the C# IDE**:
+   - Open Unity, go to `Edit` > `Preferences` > `External Tools`.
+   - Set the "External Script Editor" to Visual Studio.
+
+3. **Basic C# Scripting Knowledge**:
+   - Familiarize with Unity's C# API. Basic scripting knowledge is required to implement custom behaviors for agents and the environment.
+   - [Unity C# Scripting Documentation](https://docs.unity3d.com/Manual/ScriptingSection.html) can be helpful for beginners.
+
+## System Requirements
+- Unity 2021.3 or later
+- Python 3.8 or higher
+- TensorFlow or PyTorch (for running ML-Agents)
+- Windows, macOS, or Linux
+
+
+
+
 **The Unity Machine Learning Agents Toolkit** (ML-Agents) is an open-source
 project that enables games and simulations to serve as environments for
 training intelligent agents. We provide implementations (based on PyTorch)
