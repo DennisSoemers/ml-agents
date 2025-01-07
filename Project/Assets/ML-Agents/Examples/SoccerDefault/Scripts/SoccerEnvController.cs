@@ -56,6 +56,8 @@ public class SoccerEnvController : MonoBehaviour
         m_PurpleAgentGroup = new SimpleMultiAgentGroup();
         ballRb = ball.GetComponent<Rigidbody>();
         m_BallStartingPos = new Vector3(ball.transform.position.x, ball.transform.position.y, ball.transform.position.z);
+        Debug.Log("blue: "+m_SoccerSettings.modelTypeBlueTeam);
+        Debug.Log("Purple: "+m_SoccerSettings.modelTypePurpleTeam);
         foreach (var item in AgentsList)
         {
             item.StartingPos = item.Agent.transform.position;
@@ -63,10 +65,12 @@ public class SoccerEnvController : MonoBehaviour
             item.Rb = item.Agent.GetComponent<Rigidbody>();
             if (item.Agent.team == Team.Blue)
             {
+                item.Agent.setModelType(m_SoccerSettings.modelTypeBlueTeam);
                 m_BlueAgentGroup.RegisterAgent(item.Agent);
             }
             else
             {
+                item.Agent.setModelType(m_SoccerSettings.modelTypePurpleTeam);
                 m_PurpleAgentGroup.RegisterAgent(item.Agent);
             }
         }

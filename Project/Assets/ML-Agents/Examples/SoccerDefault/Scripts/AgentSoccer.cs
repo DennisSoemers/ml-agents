@@ -26,12 +26,12 @@ public class AgentSoccer : Agent
         Generic
     }
 
-    public enum ModelType
-    {
-        ForwardAndBackwardRaycast,
-        SoundAndViewRotation,
-        OnlyForwardRaycast
-    }
+    //public enum ModelType
+    //{
+    //    ForwardAndBackwardRaycast,
+    //    SoundAndViewRotation,
+    //    OnlyForwardRaycast
+    //}
 
     [HideInInspector]
     public Team team;
@@ -39,8 +39,7 @@ public class AgentSoccer : Agent
     // The coefficient for the reward for colliding with a ball. Set using curriculum.
     float m_BallTouch;
     public Position position;
-    public ModelType modelType;
-
+    private SoccerSettings.ModelType modelType;
     const float k_Power = 2000f;
     float m_Existential;
     float m_LateralSpeed;
@@ -102,9 +101,9 @@ public class AgentSoccer : Agent
         m_SoccerSettings = FindFirstObjectByType<SoccerSettings>();
         agentRb = GetComponent<Rigidbody>();
         agentRb.maxAngularVelocity = 500;
-
+        //SensorControllerForAgents.ManageAgentSensors(this);
         m_ResetParams = Academy.Instance.EnvironmentParameters;
-        SensorControllerForAgents.ManageAgentSensors(this);
+        
     }
 
     public void MoveAgent(ActionSegment<int> act)
@@ -225,5 +224,13 @@ public class AgentSoccer : Agent
     {
         m_BallTouch = m_ResetParams.GetWithDefault("ball_touch", 0);
     }
-
+    public void setModelType(SoccerSettings.ModelType modelType)
+    {
+        this.modelType = modelType;
+        SensorControllerForAgents.ManageAgentSensors(this);
+    }
+    public SoccerSettings.ModelType GetModelType()
+    {
+        return this.modelType;
+    }
 }

@@ -16,7 +16,7 @@ public class SensorControllerForAgents
 /*
  this function will diable the back cast raysof the agent.
 */
-public static void ManageBackCast(AgentSoccer agent, bool setActive)
+private static void ManageBackCast(AgentSoccer agent, bool setActive)
 {
         Transform child = null;
         foreach (string currentRayName in rayNames)
@@ -25,6 +25,7 @@ public static void ManageBackCast(AgentSoccer agent, bool setActive)
             if (child != null)
             {
                 Debug.Log("Child: " + child.name);
+                Debug.Log("active?: " + setActive);
                 child.gameObject.SetActive(setActive);
                 return;
             }
@@ -33,15 +34,17 @@ public static void ManageBackCast(AgentSoccer agent, bool setActive)
 
     public static void ManageAgentSensors(AgentSoccer agent)
     {
-        if (AgentSoccer.ModelType.OnlyForwardRaycast == agent.modelType)
+        Debug.Log("OnlyForwardRaycast: " + agent.GetModelType());
+        if (SoccerSettings.ModelType.OnlyForwardRaycast == agent.GetModelType())
         {
+            
             ManageBackCast(agent, false);
         }
-        else if (AgentSoccer.ModelType.ForwardAndBackwardRaycast == agent.modelType)
+        else if (SoccerSettings.ModelType.ForwardAndBackwardRaycast == agent.GetModelType())
         {
             ManageBackCast(agent, true);
         }
-        else if (AgentSoccer.ModelType.SoundAndViewRotation == agent.modelType)
+        else if (SoccerSettings.ModelType.SoundAndViewRotation == agent.GetModelType())
         {
             ManageBackCast(agent, false);
         }
