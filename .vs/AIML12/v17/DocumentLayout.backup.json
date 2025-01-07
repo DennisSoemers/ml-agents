@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\SensorsControllerForAgents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\SensorsControllerForAgents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\AgentSoccer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\AgentSoccer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\AgentSoccerLookLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\AgentSoccerLookLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerBallControllerLookLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerBallControllerLookLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerEnvControllerLookLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerEnvControllerLookLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerSettingsLookLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerSettingsLookLR.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,72 +17,39 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 284,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SensorsControllerForAgents.cs",
+              "DocumentMoniker": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\SensorsControllerForAgents.cs",
+              "RelativeDocumentMoniker": "Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\SensorsControllerForAgents.cs",
+              "ToolTip": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\SensorsControllerForAgents.cs",
+              "RelativeToolTip": "Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\SensorsControllerForAgents.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T10:05:53.926Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 116,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AgentSoccer.cs",
               "DocumentMoniker": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\AgentSoccer.cs",
               "RelativeDocumentMoniker": "Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\AgentSoccer.cs",
               "ToolTip": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\AgentSoccer.cs",
               "RelativeToolTip": "Project\\Assets\\ML-Agents\\Examples\\SoccerDefault\\Scripts\\AgentSoccer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-06T19:56:42.639Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SoccerBallControllerLookLR.cs",
-              "DocumentMoniker": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerBallControllerLookLR.cs",
-              "RelativeDocumentMoniker": "Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerBallControllerLookLR.cs",
-              "ToolTip": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerBallControllerLookLR.cs",
-              "RelativeToolTip": "Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerBallControllerLookLR.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T19:53:22.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SoccerSettingsLookLR.cs",
-              "DocumentMoniker": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerSettingsLookLR.cs",
-              "RelativeDocumentMoniker": "Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerSettingsLookLR.cs",
-              "ToolTip": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerSettingsLookLR.cs",
-              "RelativeToolTip": "Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerSettingsLookLR.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T19:53:11.145Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AgentSoccerLookLR.cs",
-              "DocumentMoniker": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\AgentSoccerLookLR.cs",
-              "RelativeDocumentMoniker": "Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\AgentSoccerLookLR.cs",
-              "ToolTip": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\AgentSoccerLookLR.cs",
-              "RelativeToolTip": "Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\AgentSoccerLookLR.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAADwAAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T19:50:36.103Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SoccerEnvControllerLookLR.cs",
-              "DocumentMoniker": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerEnvControllerLookLR.cs",
-              "RelativeDocumentMoniker": "Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerEnvControllerLookLR.cs",
-              "ToolTip": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerEnvControllerLookLR.cs",
-              "RelativeToolTip": "Project\\Assets\\ML-Agents\\Examples\\SoccerLookLR\\Scripts\\SoccerEnvControllerLookLR.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T19:49:28.176Z",
               "EditorCaption": ""
             }
           ]

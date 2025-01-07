@@ -2,47 +2,52 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
+using System.Collections.Generic;
 
 public class SensorControllerForAgents
 {
     //private string backCastName = "PurpuleReverseRays";
-    private static string BlueReverseRays = "BlueReverseRays";
-    private static string PurpleReverseRays = "PurpleReverseRays";
-    private static string BlueReverseRays1 = "BlueReverseRays (1)";
-    private static string PurpleReverseRays1 = "PurpleReverseRays (1)";
+    //private static string BlueReverseRays = "BlueReverseRays";
+    //private static string PurpleReverseRays = "PurpleReverseRays";
+    //private static string BlueReverseRays1 = "BlueReverseRays (1)";
+    //private static string PurpleReverseRays1 = "PurpleReverseRays (1)";
+    private static List<string> rayNames = new List<string> { "BlueReverseRays" , "PurpleReverseRays" , "BlueReverseRays (1)", "PurpleReverseRays (1)" };
     
-
-public static void DisableBackCast(AgentSoccer agent)
+/*
+ this function will diable the back cast raysof the agent.
+*/
+public static void ManageBackCast(AgentSoccer agent, bool setActive)
 {
         Transform child = null;
-    if (agent.team == Team.Blue)
+        foreach (string currentRayName in rayNames)
+        {
+            child = agent.transform.Find(currentRayName);
+            if (child != null)
+            {
+                Debug.Log("Child: " + child.name);
+                child.gameObject.SetActive(setActive);
+                return;
+            }
+        }
+    }
+
+    public static void ManageAgentSensors(AgentSoccer agent)
     {
-         child = agent.transform.Find(BlueReverseRays);
-        if (child != null)
+        if (AgentSoccer.ModelType.OnlyForwardRaycast == agent.modelType)
         {
-            Debug.Log("Child: " + child.name);
-            return;
+            ManageBackCast(agent, false);
         }
-         child = agent.transform.Find(BlueReverseRays1);
-        if (child != null)
+        else if (AgentSoccer.ModelType.ForwardAndBackwardRaycast == agent.modelType)
         {
-            Debug.Log("Child: " + child.name);
-            return;
+            ManageBackCast(agent, true);
         }
-    }
-         child = agent.transform.Find(PurpleReverseRays);
-        if (child != null)
+        else if (AgentSoccer.ModelType.SoundAndViewRotation == agent.modelType)
         {
-            Debug.Log("Child: " + child.name);
-            return;
-        }
-         child = agent.transform.Find(PurpleReverseRays1);
-        if (child != null)
-        {
-            Debug.Log("Child: " + child.name);
-            return;
+            ManageBackCast(agent, false);
         }
     }
+
 }
+
 
 

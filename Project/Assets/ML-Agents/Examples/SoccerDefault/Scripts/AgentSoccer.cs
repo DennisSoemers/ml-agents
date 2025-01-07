@@ -30,7 +30,7 @@ public class AgentSoccer : Agent
     {
         ForwardAndBackwardRaycast,
         SoundAndViewRotation,
-        ForwardRaycast
+        OnlyForwardRaycast
     }
 
     [HideInInspector]
@@ -69,6 +69,9 @@ public class AgentSoccer : Agent
         }
 
         m_BehaviorParameters = gameObject.GetComponent<BehaviorParameters>();
+        //m_BehaviorParameters.ActionSpec = Actions.MakeContinuous(3);
+        //var currentActionSpec = m_BehaviorParameters.BrainParameters.VectorActionSize;
+        //Debug.Log($"Current Discrete Action Space: {string.Join(", ", currentBranchSizes)}");
         if (m_BehaviorParameters.TeamId == (int)Team.Blue)
         {
             team = Team.Blue;
@@ -101,20 +104,7 @@ public class AgentSoccer : Agent
         agentRb.maxAngularVelocity = 500;
 
         m_ResetParams = Academy.Instance.EnvironmentParameters;
-        //foreach (Transform child in this.transform)
-        //{
-        //    Debug.Log("Child: " + child.name);
-        //}
-
-        //if (team == Team.Purple)
-        //{
-        //    Transform child = this.transform.Find("PurpleReverseRays");
-        //    if (child != null)
-        //    {
-        //        Debug.Log("Child: " + child.name);
-        //    }
-        //}
-        SensorControllerForAgents.DisableBackCast(this);
+        SensorControllerForAgents.ManageAgentSensors(this);
     }
 
     public void MoveAgent(ActionSegment<int> act)
