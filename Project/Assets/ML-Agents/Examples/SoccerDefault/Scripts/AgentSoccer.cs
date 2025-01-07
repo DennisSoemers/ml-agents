@@ -26,12 +26,20 @@ public class AgentSoccer : Agent
         Generic
     }
 
+    public enum ModelType
+    {
+        ForwardAndBackwardRaycast,
+        SoundAndViewRotation,
+        ForwardRaycast
+    }
+
     [HideInInspector]
     public Team team;
     float m_KickPower;
     // The coefficient for the reward for colliding with a ball. Set using curriculum.
     float m_BallTouch;
     public Position position;
+    public ModelType modelType;
 
     const float k_Power = 2000f;
     float m_Existential;
@@ -93,6 +101,20 @@ public class AgentSoccer : Agent
         agentRb.maxAngularVelocity = 500;
 
         m_ResetParams = Academy.Instance.EnvironmentParameters;
+        //foreach (Transform child in this.transform)
+        //{
+        //    Debug.Log("Child: " + child.name);
+        //}
+
+        //if (team == Team.Purple)
+        //{
+        //    Transform child = this.transform.Find("PurpleReverseRays");
+        //    if (child != null)
+        //    {
+        //        Debug.Log("Child: " + child.name);
+        //    }
+        //}
+        SensorControllerForAgents.DisableBackCast(this);
     }
 
     public void MoveAgent(ActionSegment<int> act)
