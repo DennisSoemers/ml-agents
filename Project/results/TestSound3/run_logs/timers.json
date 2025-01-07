@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1736276776",
+        "python_version": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\ronad\\Documents\\project2S1\\AIML12\\Project\\venv\\Scripts\\mlagents-learn config\\config.yaml --run-id=TestSound3",
+        "mlagents_version": "0.30.0",
+        "mlagents_envs_version": "0.30.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.4.1+cpu",
+        "numpy_version": "1.21.2",
+        "end_time_seconds": "1736276786"
+    },
+    "total": 9.588153899996541,
+    "count": 1,
+    "self": 0.008730999994440936,
+    "children": {
+        "run_training.setup": {
+            "total": 0.06220980000216514,
+            "count": 1,
+            "self": 0.06220980000216514
+        },
+        "TrainerController.start_learning": {
+            "total": 9.517213099999935,
+            "count": 1,
+            "self": 9.310001041740179e-05,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 9.517080299992813,
+                    "count": 1,
+                    "self": 9.517080299992813
+                },
+                "TrainerController._save_models": {
+                    "total": 3.9699996705166996e-05,
+                    "count": 1,
+                    "self": 3.9699996705166996e-05
+                }
+            }
+        }
+    }
+}

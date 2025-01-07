@@ -364,6 +364,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 114387866097048300, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114387866097048300, guid: 54f3340298537426e96a6cc530e2d5d8,
+        type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -387,6 +392,11 @@ PrefabInstance:
       propertyPath: modelType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114734187185382186, guid: 54f3340298537426e96a6cc530e2d5d8,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 114850431417842684, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       propertyPath: modelType
@@ -397,6 +407,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3316085536305919483, guid: 54f3340298537426e96a6cc530e2d5d8,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5320024511406682322, guid: 54f3340298537426e96a6cc530e2d5d8,
         type: 3}
       propertyPath: modelType
@@ -406,6 +421,11 @@ PrefabInstance:
         type: 3}
       propertyPath: modelType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577361778124631730, guid: 54f3340298537426e96a6cc530e2d5d8,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -735,7 +755,7 @@ MonoBehaviour:
   blueMaterial: {fileID: 2100000, guid: c9fa44c2c3f8ce74ca39a3355ea42631, type: 2}
   randomizePlayersTeamForTraining: 0
   agentRunSpeed: 2
-  modelTypeBlueTeam: 0
+  modelTypeBlueTeam: 2
   modelTypePurpleTeam: 2
 --- !u!850595691 &1909893171
 LightingSettings:

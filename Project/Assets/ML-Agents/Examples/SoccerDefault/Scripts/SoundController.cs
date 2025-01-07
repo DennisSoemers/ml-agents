@@ -81,12 +81,12 @@ public class SoundController
             counter++;
         }
         if(!sawBall){
-            observations[ballLocationInObsList] = Vector3.positiveInfinity;
+            observations[ballLocationInObsList] = new Vector3(-100, -100, -100);
         }
         for (int i = counter; i < vectorSize; i++)
         {
             // Debug.Log(observations[i]);
-            observations[i] = Vector3.positiveInfinity;
+            observations[i] = new Vector3(-100, -100, -100);
         }
         return observations;
     }

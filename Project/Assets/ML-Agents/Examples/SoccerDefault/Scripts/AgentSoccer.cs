@@ -356,15 +356,17 @@ public class AgentSoccer : Agent
         // }
         // detectedObjects.Clear();
         Vector3[] observations = soundController.GetObservations(transform);
-        if(this.gameObject.name !="BlueStriker"){
-            return;
-        }
+        // if(this.gameObject.name =="BlueStriker"){
+        //     return;
+        // }
         // Debug.Log("-------------------------------------------------");
         foreach (Vector3 vector in observations)
         {
             //Debug.Log(vector);
             sensor.AddObservation(vector);
         }
+        // int totalObservations = sensor.ObservationSize(); // Check the size dynamically
+        // Debug.Log($"Total Observations: {totalObservations}");
     }
 
 
