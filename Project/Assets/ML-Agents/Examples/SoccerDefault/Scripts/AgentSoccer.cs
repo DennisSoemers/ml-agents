@@ -2,6 +2,9 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Policies;
+using Unity.MLAgents.Sensors;
+using System;
+using System.Collections.Generic;
 
 public enum Team
 {
@@ -52,12 +55,14 @@ public class AgentSoccer : Agent
     BehaviorParameters m_BehaviorParameters;
     public Vector3 initialPos;
     public float rotSign;
+    private SoundController soundController;
 
     EnvironmentParameters m_ResetParams;
 
     public override void Initialize()
     {
         SoccerEnvController envController = GetComponentInParent<SoccerEnvController>();
+        soundController = new SoundController();
         if (envController != null)
         {
             m_Existential = 1f / envController.MaxEnvironmentSteps;
@@ -103,7 +108,7 @@ public class AgentSoccer : Agent
         agentRb.maxAngularVelocity = 500;
         //SensorControllerForAgents.ManageAgentSensors(this);
         m_ResetParams = Academy.Instance.EnvironmentParameters;
-        
+
     }
 
     public void MoveAgent(ActionSegment<int> act)
@@ -233,4 +238,135 @@ public class AgentSoccer : Agent
     {
         return this.modelType;
     }
+    void OnTriggerEnter(Collider other)
+    {
+        // if (other.gameObject.tag == "ball")
+        // {
+        //     if (other.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 0)
+        //     {
+        //         addGameObject(other.gameObject);
+        //     }
+        // }
+        // if (other.CompareTag("objectWithSound"))
+        // {
+        //     //Debug.Log("Object with sound 'YourTag' is within the sphere collider.");
+        //     addGameObject(other.gameObject);
+        // }
+        // soundController
+        soundController.AddToList(other.gameObject);
+    }
+
+
+
+
+    void OnTriggerStay(Collider other)
+    {
+        // if (other.CompareTag("objectWithSound"))
+        // {
+        //     if (other.gameObject == null)
+        //     {
+        //         //Debug.LogError("Rigidbody component is not found on the agent!");
+        //     }
+        //     addGameObject(other.gameObject);
+        // }
+        soundController.AddToList(other.gameObject);
+    }
+
+    // private void addGameObject(GameObject gameObject)
+    // {
+    //     foreach (GameObject currentGameObject in detectedObjects)
+    //     {
+    //         if (currentGameObject == gameObject)
+    //         {
+    //             return;
+    //         }
+    //     }
+    //     detectedObjects.Add(gameObject);
+    // }
+
+    void OnTriggerExit(Collider other)
+    {
+        // removeRigidbody(other.gameObject);
+        soundController.RemoveFromList(other.gameObject);
+    }
+
+    // private void removeRigidbody(GameObject gameObject)
+    // {
+    //     foreach (GameObject currentGameObject in detectedObjects)
+    //     {
+    //         if (currentGameObject == gameObject)
+    //         {
+    //             detectedObjects.Remove(gameObject);
+    //             return;
+    //         }
+    //     }
+    // }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        //  List<GameObject>detectedObjects = soundController.GetDetectedGameObjectsList();
+        // int vectorSize = 5;
+        // if (sensor == null)
+        // {
+        //     Debug.LogError("sensor is null");
+        // }
+        // if (detectedObjects.Count > vectorSize)
+        // {
+        //     Debug.Log("count: " + detectedObjects.Count);
+        // }
+        // //Debug.Log("count: " + detectedObjects.Count);
+
+        // // Add the number of detected objects as an observation
+        // //sensor.AddObservation(detectedObjects.Count);
+        // //List<Vector3> observations = new List<Vector3>();
+        // // Optionally, add more detailed observations for each detected object (e.g., position, distance)
+        // //Debug.Log("Number of detected objects: " + detectedObjects.Count);
+        // Vector3[] observations = new Vector3[vectorSize];
+        // int counter = 0;
+        // foreach (GameObject gameObject in detectedObjects)
+        // {
+        //     if (counter < vectorSize)
+        //     {
+        //         Rigidbody r = gameObject.GetComponent<Rigidbody>();
+        //         //Vector3 currentVelocity = r.velocity;
+        //         Vector3 relativePosition = transform.position - r.transform.position;
+        //         //Debug.Log("Observation - Relative Position of Object: " + relativePosition);
+        //         //sensor.AddObservation(relativePosition);
+        //         observations[counter] = relativePosition;
+        //         counter++;
+        //     }
+        // }
+        // if (counter < vectorSize)
+        // {
+        //     for (int i = counter; i < vectorSize; i++)
+        //     {
+        //         //Debug.Log(observations[i]);
+        //         observations[i] = Vector3.zero;
+        //     }
+        // }
+        // int count = 0;
+        // foreach (Vector3 vector in observations)
+        // {
+        //     if (count < vectorSize)
+        //     {
+        //         //Debug.Log(vector);
+        //         sensor.AddObservation(vector);
+        //         count++;
+        //     }
+        // }
+        // detectedObjects.Clear();
+        Vector3[] observations = soundController.GetObservations(transform);
+        if(this.gameObject.name !="BlueStriker"){
+            return;
+        }
+        // Debug.Log("-------------------------------------------------");
+        foreach (Vector3 vector in observations)
+        {
+            //Debug.Log(vector);
+            sensor.AddObservation(vector);
+        }
+    }
+
+
+
 }
