@@ -24,8 +24,8 @@ private static void ManageBackCast(AgentSoccer agent, bool setActive)
             child = agent.transform.Find(currentRayName);
             if (child != null)
             {
-                Debug.Log("Child: " + child.name);
-                Debug.Log("active?: " + setActive);
+                //Debug.Log("Child: " + child.name);
+                //Debug.Log("active?: " + setActive);
                 child.gameObject.SetActive(setActive);
                 return;
             }
@@ -34,7 +34,7 @@ private static void ManageBackCast(AgentSoccer agent, bool setActive)
 
     public static void ManageAgentSensors(AgentSoccer agent)
     {
-        Debug.Log("OnlyForwardRaycast: " + agent.GetModelType());
+        //Debug.Log("OnlyForwardRaycast: " + agent.GetModelType());
         if (SoccerSettings.ModelType.OnlyForwardRaycast == agent.GetModelType())
         {
             
