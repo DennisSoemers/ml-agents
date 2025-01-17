@@ -101,3 +101,6 @@ coverage.xml
 
 # yamato-parser temporary output files:
 .yamato/unfolded/
+
+# training_scripts aside from the template_config.yaml
+training_scripts/*/
