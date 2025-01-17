@@ -37,7 +37,6 @@ private static void ManageBackCast(AgentSoccer agent, bool setActive)
         //Debug.Log("OnlyForwardRaycast: " + agent.GetModelType());
         if (SoccerSettings.ModelType.OnlyForwardRaycast == agent.GetModelType())
         {
-            
             ManageBackCast(agent, false);
         }
         else if (SoccerSettings.ModelType.ForwardAndBackwardRaycast == agent.GetModelType())
@@ -46,6 +45,7 @@ private static void ManageBackCast(AgentSoccer agent, bool setActive)
         }
         else if (SoccerSettings.ModelType.SoundAndViewRotation == agent.GetModelType())
         {
+            agent.setSphereActive(true);
             ManageBackCast(agent, false);
         }
     }
