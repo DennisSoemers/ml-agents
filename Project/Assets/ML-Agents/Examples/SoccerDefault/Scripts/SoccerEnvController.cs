@@ -46,23 +46,26 @@ public class SoccerEnvController : MonoBehaviour
     private SimpleMultiAgentGroup m_PurpleAgentGroup;
 
     private int m_ResetTimer;
+    private Sound sound;
 
     void Start()
     {
-
+        sound = new Sound();
         m_SoccerSettings = FindObjectOfType<SoccerSettings>();
         // Initialize TeamManager
         m_BlueAgentGroup = new SimpleMultiAgentGroup();
         m_PurpleAgentGroup = new SimpleMultiAgentGroup();
         ballRb = ball.GetComponent<Rigidbody>();
         m_BallStartingPos = new Vector3(ball.transform.position.x, ball.transform.position.y, ball.transform.position.z);
-        Debug.Log("blue: "+m_SoccerSettings.modelTypeBlueTeam);
-        Debug.Log("Purple: "+m_SoccerSettings.modelTypePurpleTeam);
+        sound.AddObject(ballRb);
+        // Debug.Log("blue: "+m_SoccerSettings.modelTypeBlueTeam);
+        // Debug.Log("Purple: "+m_SoccerSettings.modelTypePurpleTeam);
         foreach (var item in AgentsList)
         {
             item.StartingPos = item.Agent.transform.position;
             item.StartingRot = item.Agent.transform.rotation;
             item.Rb = item.Agent.GetComponent<Rigidbody>();
+            sound.AddObject(item.Rb);
             if (item.Agent.team == Team.Blue)
             {
                 item.Agent.setModelType(m_SoccerSettings.modelTypeBlueTeam);
@@ -73,6 +76,11 @@ public class SoccerEnvController : MonoBehaviour
                 item.Agent.setModelType(m_SoccerSettings.modelTypePurpleTeam);
                 m_PurpleAgentGroup.RegisterAgent(item.Agent);
             }
+        }
+        foreach (var item in AgentsList)
+        {
+            item.Agent.setSound(sound);
+            item.Agent.initThing();
         }
         ResetScene();
     }

@@ -47,6 +47,7 @@ public class AgentSoccer : Agent
     float m_Existential;
     float m_LateralSpeed;
     float m_ForwardSpeed;
+    private Sound sound;
     //private static int counter = 0;
 
 
@@ -56,15 +57,18 @@ public class AgentSoccer : Agent
     BehaviorParameters m_BehaviorParameters;
     public Vector3 initialPos;
     public float rotSign;
-    private SoundController soundController;
-    private bool sphereActive=false;
+    private bool sphereActive = false;
 
+    private Queue<List<Vector3>> soundMemory;
+    private int MEM_SIZE = 3;
     EnvironmentParameters m_ResetParams;
 
     public override void Initialize()
     {
+        sphereActive = true;
+        soundMemory = new Queue<List<Vector3>>();
+
         SoccerEnvController envController = GetComponentInParent<SoccerEnvController>();
-        soundController = new SoundController();
         if (envController != null)
         {
             m_Existential = 1f / envController.MaxEnvironmentSteps;
@@ -110,7 +114,7 @@ public class AgentSoccer : Agent
         agentRb.maxAngularVelocity = 500;
         //SensorControllerForAgents.ManageAgentSensors(this);
         m_ResetParams = Academy.Instance.EnvironmentParameters;
-
+        m_BallTouch = 0.1f;
     }
 
     public void MoveAgent(ActionSegment<int> act)
@@ -230,7 +234,47 @@ public class AgentSoccer : Agent
     public override void OnEpisodeBegin()
     {
         m_BallTouch = m_ResetParams.GetWithDefault("ball_touch", 0);
+        m_BallTouch = 0.1f;
     }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        if (!sphereActive)
+        {
+
+            return;
+        }
+        List<Vector3> objects = sound.getObjects(agentRb);
+        soundMemory.Dequeue();
+        soundMemory.Enqueue(objects);
+        foreach (List<Vector3> frame in soundMemory)
+        {
+            foreach (Vector3 t in frame)
+            {
+                if (Vector3.zero == t)
+                {
+                    sensor.AddObservation(Vector3.zero);
+                    // Debug.Log(transform.name + " empty" );
+                    continue;
+                }
+                Vector3 relativePosition = (transform.position - t).normalized;
+                relativePosition.y = (transform.position - t).magnitude;
+                sensor.AddObservation(relativePosition);
+                // Debug.Log(transform.name + " " + relativePosition);
+            }
+        }
+
+    }
+
+    public void initThing()
+    {
+        for (int i = 0; i < MEM_SIZE; i++)
+        {
+            soundMemory.Enqueue(sound.getObjects(agentRb));
+
+        }
+    }
+
     public void setModelType(SoccerSettings.ModelType modelType)
     {
         this.modelType = modelType;
@@ -240,72 +284,6 @@ public class AgentSoccer : Agent
     {
         return this.modelType;
     }
-    void OnTriggerEnter(Collider other)
-    {
-        soundController.AddToList(other.gameObject);
-    }
-    void OnTriggerStay(Collider other)
-    {
-        soundController.AddToList(other.gameObject);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        soundController.RemoveFromList(other.gameObject);
-    }
-
-    public override void CollectObservations(VectorSensor sensor)
-    {
-        
-        Queue<Vector3[]> observations = soundController.GetObservations(transform);
-
-        // if (this.gameObject.name == "BlueStriker")
-        // {
-        //     Debug.Log("-------------------------------------------------");
-        //     Debug.Log(observations.Count);
-        // }
-        if(!this.sphereActive){
-            return;
-        }
-        sensor.AddObservation(agentRb.transform.rotation.eulerAngles.y);
-        foreach (Vector3[] frame in observations)
-        {
-            foreach (Vector3 vector in frame)
-            {
-                // if (this.gameObject.name == "BlueStriker")
-                // {
-                //     Debug.Log(vector);
-                // }
-                //Debug.Log(vector);
-                sensor.AddObservation(vector);
-            }
-            // if (this.gameObject.name == "BlueStriker")
-            // {
-            //     Debug.Log(counter);
-            //     Debug.Log("-------------------------------------------------");
-            // }
-            // if (detectedObjects.Count == 0) Debug.Log("No observations found: " + agentRb.name);
-        // else if (!detectedObjects[0].CompareTag("ball")) Debug.Log("Ball not found: " + agentRb.name);
-        // if (detectedObjects.Count > 0 && detectedObjects[0].CompareTag("ball"))
-        // {
-        //     Debug.Log("Detected observation 0: " + observations[0]);
-        //     Debug.Log("Detected observation 0 (name): " + detectedObjects[0].name);
-        //     Debug.Log("rot norm: " + agentRb.transform.rotation.eulerAngles.y);
-        //     Debug.Log("agent name: " + agentRb.name);
-        // }
-        }
-        // if (this.gameObject.name == "BlueStriker")
-        // {
-        //     if (counter == 5)
-        //     {
-        //         Debug.LogError("stop here");
-        //     }
-        //     counter++;
-        // }
-        // int totalObservations = sensor.ObservationSize(); // Check the size dynamically
-        // Debug.Log($"Total Observations: {totalObservations}");
-    }
-
     public void setSphereActive(bool active)
     {
         this.sphereActive = active;
@@ -313,5 +291,10 @@ public class AgentSoccer : Agent
     public bool getSphereActive()
     {
         return this.sphereActive;
+    }
+
+    public void setSound(Sound sound)
+    {
+        this.sound = sound;
     }
 }
