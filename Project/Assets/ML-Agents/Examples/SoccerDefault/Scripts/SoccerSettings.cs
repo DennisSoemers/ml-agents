@@ -15,4 +15,11 @@ public class SoccerSettings : MonoBehaviour
     }
     public ModelType modelTypeBlueTeam;
     public ModelType modelTypePurpleTeam;
+
+    public enum ModelCompare{
+        Yes,
+        No
+    }
+    public ModelCompare modelCompare;
+    public int limit=0;
 }
