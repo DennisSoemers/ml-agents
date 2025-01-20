@@ -43,12 +43,24 @@ Each experiment has its corresponding configuration file stored in the directory
    - Go to **Window → Analysis → Profiler** in the Unity Editor.
    - Press the round recording button (next to "Play Mode") to begin collecting performance data for CPU, GPU, and memory.
 
+
+
 3. **TensorBoard Setup**:
-   - **Terminal 2**: Start TensorBoard for visualizing training results:
-     ```bash
-     tensorboard --logdir="<training-result-directory>" --port=6006
-     ```
-     Replace `<training-result-directory>` with the directory storing your training results. Open your browser and visit [http://localhost:6006](http://localhost:6006).
+    - **Terminal 2**: Start TensorBoard for visualizing training results:
+  ```bash
+  tensorboard --logdir="<training-result-directory>" --port=6006
+  ```
+  Replace `<training-result-directory>` with the directory storing your training results. Open your browser and visit [http://localhost:6006](http://localhost:6006), then you can check some ralted graphs.
+
+  - **Run Multiple Experiments**:
+    - When running additional experiments, ensure each TensorBoard session uses a unique port to avoid conflicts.  
+      For example:
+      - Use `--port=6007` for the second experiment.
+      - Use `--port=6008` for the third experiment, and so on.
+
+
+     
+     
 
 4. **Profile Analyzer**:
    - After training, save performance data from Unity Profiler:
