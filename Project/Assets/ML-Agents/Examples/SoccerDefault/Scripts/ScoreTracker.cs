@@ -63,4 +63,13 @@ purple model type: {getModelType(modelTypePurple)} purple won: {purpleScore}
         return "Unknown";
 
     }
+
+    public int getBlueScore()
+    {
+        return blueScore;
+    }
+    public int getPurpleScore()
+    {
+        return purpleScore;
+    }
 }

@@ -157,6 +157,9 @@ public class SoccerEnvController : MonoBehaviour
         if (s != ""&&limit!=0)
         {
             Debug.LogError(s);
+        }else if(s==""&&limit!=0)
+        {
+            Debug.Log("blue won: " + scoreTracker.getBlueScore() + " purple won: " + scoreTracker.getPurpleScore());
         }
     }
 }
