@@ -1,5 +1,36 @@
 # Unity ML-Agents Toolkit
 
+This is a fork of the ML-Agents repository. The project extends the framework for studying the effects of sensory inputs and learning rates on soccer agents in a simulated environment.
+
+### Key Information:
+- Results can be found in the `results_extractor` directory.
+- Model training is conducted using the `script.py` script.
+- The research paper detailing the experiments is located at `docs/report.pdf`.
+
+### How to Use the Code:
+When opening the project in Unity, navigate to the folder:
+`Assets/ML-Agents/Examples/SoccerDefault/Scenes`
+
+1. Choose the SoccerTwos scene.
+2. Ensure only one field is active at a time:
+   - In the Hierarchy, select the desired field.
+   - In the Inspector panel, check the box next to the field's name to activate it.
+3. Check the type of brain for each agent:
+   - Expand the field in the Hierarchy.
+   - Select a blue agent and review its brain type in the Inspector. The following models are available:
+     - `FRaysAllen`: Forward rays only, trained with a 0.001 learning rate.
+     - `FBRaysAllen`: Forward and backward rays, trained with a 0.001 learning rate.
+     - `SoundAllen`: Sound-enabled, trained with a 0.001 learning rate.
+     - `ForwardBackwardRaycastSoccerTwos`: Forward and backward rays, trained with a 0.0003 learning rate.
+     - `OnlyForwardSoccerTwos`: Forward-only rays, trained with a 0.0003 learning rate.
+     - `soundNoah`: Sound-enabled, trained with a 0.0003 learning rate.
+4. Match the agent types in SoccerSettings (top of Hierarchy):
+   - Sound corresponds to sound and view rotation.
+   - Limit specifies the number of points for each game; the game stops after this limit.
+5. Avoid interacting with agents during the game to prevent crashes.
+
+---
+
 [![docs badge](https://img.shields.io/badge/docs-reference-blue.svg)](https://github.com/Unity-Technologies/ml-agents/tree/release_21_docs/docs/)
 
 [![license badge](https://img.shields.io/badge/license-Apache--2.0-green.svg)](../LICENSE.md)
