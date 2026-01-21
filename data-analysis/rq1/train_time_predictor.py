@@ -9,20 +9,21 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
-import json
+import yaml
 
-# load configuration from json file
-f = open('config.json')
-cfg = json.load(f)
+# load configuration from yaml file
+f = open('config.yaml')
+config = yaml.safe_load(f)
 f.close()
+cfg = config['rq1']
 
 # load the dataset
 df = pd.read_csv(cfg['data_file'])
 print("loaded", len(df), "samples")
 
 # removing runs that took way too long or too short (bc they are probably failed runs)
-df = df[df['total_time_seconds'] < 15000]  # max 15000 seconds
-df = df[df['total_time_seconds'] > 20]     # min 20 seconds
+df = df[df['total_time_seconds'] < cfg['preprocessing']['max_time']]
+df = df[df['total_time_seconds'] > cfg['preprocessing']['min_time']]
 print("after removing outliers:", len(df))
 
 # convert game names each game gets its own column with 0 or 1
@@ -92,13 +93,25 @@ y_test_orig = df.loc[idx_test, 'total_time_seconds']
 def to_seconds(pred):
     return np.expm1(pred)
 # random forest
-rf = RandomForestRegressor(n_estimators=200, max_depth=None, min_samples_leaf=1, random_state=42)
+rf_cfg = cfg['random_forest']
+rf = RandomForestRegressor(
+    n_estimators=rf_cfg['n_estimators'],
+    max_depth=rf_cfg['max_depth'],
+    min_samples_leaf=rf_cfg['min_samples_leaf'],
+    random_state=cfg['random_state']
+)
 rf.fit(X_train, y_train)
 rf_pred = to_seconds(rf.predict(X_test))
 r2_rf = r2_score(y_test_orig, rf_pred)
 mae_rf = mean_absolute_error(y_test_orig, rf_pred)
 # gradient boosting
-gb = GradientBoostingRegressor(n_estimators=300, max_depth=6, learning_rate=0.05, random_state=42)
+gb_cfg = cfg['gradient_boosting']
+gb = GradientBoostingRegressor(
+    n_estimators=gb_cfg['n_estimators'],
+    max_depth=gb_cfg['max_depth'],
+    learning_rate=gb_cfg['learning_rate'],
+    random_state=cfg['random_state']
+)
 gb.fit(X_train, y_train)
 gb_pred = to_seconds(gb.predict(X_test))
 r2_gb = r2_score(y_test_orig, gb_pred)
@@ -124,7 +137,6 @@ cv_rf = cross_val_score(rf, X, y, cv=5, scoring='r2')
 cv_gb = cross_val_score(gb, X, y, cv=5, scoring='r2')
 print("Random Forest:     mean=" + str(round(cv_rf.mean(), 3)) + " std=" + str(round(cv_rf.std(), 3)))
 print("Gradient Boosting: mean=" + str(round(cv_gb.mean(), 3)) + " std=" + str(round(cv_gb.std(), 3)))
-print("(note: CV scores are on log scale)")
 
 
 # feature importance from random forest
@@ -154,13 +166,13 @@ print("\nPer game models:")
 per_game_results = []
 for g in games:
     gdf = df[df['game_name'] == g]
-    if len(gdf) >= 300:  # need at least 300 samples for reliable results
+    if len(gdf) >= cfg['per_game']['min_samples']:  # need at least 300 samples for reliable results
         # not using game columns for per-game model
         gcols = [c for c in X.columns if not c.startswith('game_')]
         Xg = gdf[gcols].dropna()
         yg_orig = gdf.loc[Xg.index, 'total_time_seconds']
 
-        if len(Xg) >= 300:
+        if len(Xg) >= cfg['per_game']['min_samples']:
             Xg_train, Xg_test, yg_train, yg_test = train_test_split(Xg, yg_orig, test_size=0.2, random_state=42)
 
             grf = RandomForestRegressor(n_estimators=200, max_depth=None, random_state=42)
@@ -185,7 +197,7 @@ maxv = max(y_test_orig.max(), max(best_pred))
 ax1.plot([minv, maxv], [minv, maxv], 'r--')
 ax1.set_xlabel('Actual Time (s)')
 ax1.set_ylabel('Predicted Time (s)')
-ax1.set_title('Predictions vs Actual (R2=' + str(round(best_r2, 3)) + ')')
+ax1.set_title(best_name + ' (R2=' + str(round(best_r2, 3)) + ')')
 
 # feature importance bar chart
 ax2 = fig1.add_subplot(2, 2, 2)
@@ -265,6 +277,8 @@ f.write("\nBest Model: " + best_name + " (R2=" + str(round(best_r2, 3)) + ")\n")
 f.write("\nCross Validation (5-fold):\n")
 f.write("  Random Forest:     mean=" + str(round(cv_rf.mean(), 3)) + " std=" + str(round(cv_rf.std(), 3)) + "\n")
 f.write("  Gradient Boosting: mean=" + str(round(cv_gb.mean(), 3)) + " std=" + str(round(cv_gb.std(), 3)) + "\n")
+print("(CV scores are on log scale)")
+
 f.write("\nTop 5 Important Features:\n")
 for i in range(5):
     f.write("  " + feat_imp[i][0] + ": " + str(round(feat_imp[i][1], 3)) + "\n")

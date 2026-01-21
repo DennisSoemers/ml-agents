@@ -1,0 +1,27 @@
+RQ1: Training Time Prediction Results
+======================================
+
+Dataset: 5756 samples, 28 features
+
+Model Performance (on test set):
+  Random Forest:     R2=0.64 MAE=155.0s
+  Gradient Boosting: R2=0.689 MAE=149.0s
+
+Best Model: Gradient Boosting (R2=0.689)
+
+Cross Validation (5-fold):
+  Random Forest:     mean=0.914 std=0.052
+  Gradient Boosting: mean=0.932 std=0.041
+
+Top 5 Important Features:
+  log_max_steps: 0.379
+  max_steps: 0.327
+  system_ram_gb: 0.124
+  buffer_ratio: 0.057
+  game_GridFoodCollector: 0.049
+
+Per Game Model Results:
+  Crawler: n=415 R2=0.775
+  3DBallHard: n=1915 R2=0.746
+  GridFoodCollector: n=337 R2=0.626
+  3DBall: n=2597 R2=0.267
