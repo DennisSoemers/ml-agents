@@ -48,8 +48,7 @@ match hyperparameter:
         changed_param = "gamma"
 
 
-mod_file = f"""
-behaviors:
+mod_file = f"""behaviors:
   DungeonEscape:
     trainer_type: poca
     hyperparameters:
