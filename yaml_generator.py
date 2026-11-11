@@ -1,7 +1,9 @@
 import sys
+from pathlib import Path
 
 # this is platfrom specific, might want to not have it as a set value
-PATH_TO_YAMLS = "./yamls/"
+PATH_TO_YAMLS = Path(__file__).resolve().parent / "yamls"
+PATH_TO_YAMLS.mkdir(parents=True, exist_ok=True)
 if(len(sys.argv)< 3):
     print("Usage: yaml_generator --[hyperparameter] [value]")
     sys.exit(-1)
@@ -39,7 +41,7 @@ match hyperparameter:
         changed_param = "epsilon"
     case "--lambda":
         lambd = value
-        changed_param = "lambda"
+        changed_param = "lambd"
     case "--strength":
         strenght = value
         changed_param = "strength"
@@ -75,7 +77,7 @@ mod_file = f"""behaviors:
     summary_freq: 60000
 """
 
-filename= f"{PATH_TO_YAMLS}DungeonEscape_{changed_param}_{value}.yaml"
+filename= PATH_TO_YAMLS / f"DungeonEscape_{changed_param}_{value}.yaml"
 
 with open(filename, "w") as f:
     f.write(mod_file)
